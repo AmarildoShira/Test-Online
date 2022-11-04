@@ -8,6 +8,8 @@ from django.conf import settings
 from datetime import date, timedelta
 from quiz import models as QMODEL
 from teacher import models as TMODEL
+import random
+from quiz.models import Question
 
 
 #for showing signup/login button for student
@@ -18,18 +20,13 @@ def studentclick_view(request):
 
 def student_signup_view(request):
     userForm=forms.StudentUserForm()
-    studentForm=forms.StudentForm()
-    mydict={'userForm':userForm,'studentForm':studentForm}
+    mydict={'userForm':userForm,}
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
-        studentForm=forms.StudentForm(request.POST,request.FILES)
-        if userForm.is_valid() and studentForm.is_valid():
+        if userForm.is_valid() :
             user=userForm.save()
             user.set_password(user.password)
             user.save()
-            student=studentForm.save(commit=False)
-            student.user=user
-            student.save()
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
         return HttpResponseRedirect('studentlogin')
@@ -70,7 +67,10 @@ def take_exam_view(request,pk):
 @user_passes_test(is_student)
 def start_exam_view(request,pk):
     course=QMODEL.Course.objects.get(id=pk)
-    questions=QMODEL.Question.objects.all().filter(course=course)
+    # qe = Question.objects.all(random(0, 1))
+    questions=list(Question.objects.all().filter(course=course))
+    questions = random.sample(questions, 1)
+    # questions = Question.objects.order_by('?')[:2]
     if request.method=='POST':
         pass
     response= render(request,'student/start_exam.html',{'course':course,'questions':questions})
