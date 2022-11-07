@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
+    mobile = models.IntegerField(null=True, blank=True)
     first_name=models.CharField(max_length=64, null=True, blank=True)
     last_name=models.CharField(max_length=64, null=True, blank=True)
     username=models.CharField(max_length=64, null=True, blank=True)

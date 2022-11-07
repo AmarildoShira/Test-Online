@@ -20,13 +20,18 @@ def studentclick_view(request):
 
 def student_signup_view(request):
     userForm=forms.StudentUserForm()
-    mydict={'userForm':userForm,}
+    studentForm=forms.StudentForm()
+    mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
-        if userForm.is_valid() :
+        studentForm=forms.StudentForm(request.POST)
+        if userForm.is_valid() and studentForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)
             user.save()
+            student=studentForm.save(commit=False)
+            student.user=user
+            student.save()
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
         return HttpResponseRedirect('studentlogin')
@@ -69,7 +74,7 @@ def start_exam_view(request,pk):
     course=QMODEL.Course.objects.get(id=pk)
     # qe = Question.objects.all(random(0, 1))
     questions=list(Question.objects.all().filter(course=course))
-    questions = random.sample(questions, 1)
+    questions = random.sample(questions, 2)
     # questions = Question.objects.order_by('?')[:2]
     if request.method=='POST':
         pass
