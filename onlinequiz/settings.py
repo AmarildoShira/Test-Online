@@ -27,7 +27,7 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://test-online-albania.herokuapp.com/', "80.78.73.53"]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'online-test-al.herokuapp.com', 'online-test-al.com']
 
 
 # Application definition
