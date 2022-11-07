@@ -1,2 +1,7 @@
+
+
 <process type>: <command>
-web: gunicorn myproject.wsgi
+
+web: gunicorn onlinequiz.wsgi
+
+web: bundle exec rails server -p $PORT
