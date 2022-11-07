@@ -84,22 +84,22 @@ WSGI_APPLICATION = 'onlinequiz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'quiz',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'quiz',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
 
 
 # Password validation
