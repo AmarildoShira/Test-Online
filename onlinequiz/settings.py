@@ -26,9 +26,9 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'online-test-al.herokuapp.com', 'online-test-al.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'online-test-al.onrender.com', 'test-online-4hev.onrender.com']
 
 
 # Application definition
@@ -140,9 +140,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL='/afterlogin'
