@@ -28,7 +28,7 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'online-test-al.onrender.com', 'test-online-4hev.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'test-online-83ql.onrender.com', 'https://test-online-83ql.onrender.com']
 
 
 # Application definition
