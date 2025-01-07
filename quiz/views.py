@@ -53,7 +53,7 @@ def adminclick_view(request):
 def admin_dashboard_view(request):
     dict={
     'total_student':SMODEL.Student.objects.all().count(),
-    'total_teacher':TMODEL.Teacher.objects.all().filter(status=True).count(),
+    # 'total_teacher':TMODEL.Teacher.objects.all().filter(status=True).count(),
     'total_course':models.Course.objects.all().count(),
     'total_question':models.Question.objects.all().count(),
     }

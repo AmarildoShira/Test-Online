@@ -74,7 +74,7 @@ def start_exam_view(request,pk):
     course=QMODEL.Course.objects.get(id=pk)
     # qe = Question.objects.all(random(0, 1))
     questions=list(Question.objects.all().filter(course=course))
-    questions = random.sample(questions, 2)
+    questions = random.sample(questions, 3)
     # questions = Question.objects.order_by('?')[:2]
     if request.method=='POST':
         pass
